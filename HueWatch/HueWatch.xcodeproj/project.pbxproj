@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		974D5B5D1B13BDEF0042C316 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 974D5B5C1B13BDEF0042C316 /* InterfaceController.m */; };
+		974D5B5F1B13BDEF0042C316 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B5E1B13BDEF0042C316 /* Images.xcassets */; };
+		974D5B631B13BDF00042C316 /* HueWatch WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B621B13BDF00042C316 /* HueWatch WatchKit App.app */; };
+		974D5B6B1B13BDF00042C316 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B691B13BDF00042C316 /* Interface.storyboard */; };
+		974D5B6D1B13BDF00042C316 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B6C1B13BDF00042C316 /* Images.xcassets */; };
+		974D5B701B13BDF00042C316 /* HueWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 974D5B571B13BDEF0042C316 /* HueWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		97BA89C11AF58B0A0065E86A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C01AF58B0A0065E86A /* main.m */; };
 		97BA89C41AF58B0A0065E86A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C31AF58B0A0065E86A /* AppDelegate.m */; };
 		97BA89C71AF58B0A0065E86A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C61AF58B0A0065E86A /* FirstViewController.m */; };
@@ -15,10 +21,26 @@
 		97BA89CF1AF58B0A0065E86A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97BA89CE1AF58B0A0065E86A /* Images.xcassets */; };
 		97BA89D21AF58B0A0065E86A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97BA89D01AF58B0A0065E86A /* LaunchScreen.xib */; };
 		97BA89DE1AF58B0A0065E86A /* HueWatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89DD1AF58B0A0065E86A /* HueWatchTests.m */; };
+		97EB8E1A1B13C82F005F25E5 /* NSURLSession+HueWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB8E191B13C82F005F25E5 /* NSURLSession+HueWatch.m */; };
+		97EB8E1D1B13C9AA005F25E5 /* NSString+HueWatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 97EB8E1C1B13C9AA005F25E5 /* NSString+HueWatch.m */; };
 		EADBCF8C802E922EEABB5D86 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FDDFD6573E7D1269935CE26 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		974D5B641B13BDF00042C316 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97BA89B31AF58B0A0065E86A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 974D5B611B13BDF00042C316;
+			remoteInfo = "HueWatch WatchKit App";
+		};
+		974D5B6E1B13BDF00042C316 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 97BA89B31AF58B0A0065E86A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 974D5B561B13BDEF0042C316;
+			remoteInfo = "HueWatch WatchKit Extension";
+		};
 		97BA89D81AF58B0A0065E86A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97BA89B31AF58B0A0065E86A /* Project object */;
@@ -28,8 +50,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		974D5B771B13BDF00042C316 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				974D5B701B13BDF00042C316 /* HueWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0FDDFD6573E7D1269935CE26 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		974D5B571B13BDEF0042C316 /* HueWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HueWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		974D5B5A1B13BDEF0042C316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		974D5B5B1B13BDEF0042C316 /* InterfaceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InterfaceController.h; sourceTree = "<group>"; };
+		974D5B5C1B13BDEF0042C316 /* InterfaceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InterfaceController.m; sourceTree = "<group>"; };
+		974D5B5E1B13BDEF0042C316 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		974D5B621B13BDF00042C316 /* HueWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HueWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		974D5B681B13BDF00042C316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		974D5B6A1B13BDF00042C316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		974D5B6C1B13BDF00042C316 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		97BA89BB1AF58B0A0065E86A /* HueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BA89BF1AF58B0A0065E86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BA89C01AF58B0A0065E86A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,11 +90,22 @@
 		97BA89D71AF58B0A0065E86A /* HueWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HueWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BA89DC1AF58B0A0065E86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BA89DD1AF58B0A0065E86A /* HueWatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HueWatchTests.m; sourceTree = "<group>"; };
+		97EB8E181B13C82F005F25E5 /* NSURLSession+HueWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+HueWatch.h"; sourceTree = "<group>"; };
+		97EB8E191B13C82F005F25E5 /* NSURLSession+HueWatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+HueWatch.m"; sourceTree = "<group>"; };
+		97EB8E1B1B13C9AA005F25E5 /* NSString+HueWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HueWatch.h"; sourceTree = "<group>"; };
+		97EB8E1C1B13C9AA005F25E5 /* NSString+HueWatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HueWatch.m"; sourceTree = "<group>"; };
 		D1EDBA49AA3289CAD0289199 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E4549570CA57793CF539D2A8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		974D5B541B13BDEF0042C316 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97BA89B81AF58B0A0065E86A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,11 +132,50 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		974D5B581B13BDEF0042C316 /* HueWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				974D5B5B1B13BDEF0042C316 /* InterfaceController.h */,
+				974D5B5C1B13BDEF0042C316 /* InterfaceController.m */,
+				974D5B5E1B13BDEF0042C316 /* Images.xcassets */,
+				974D5B591B13BDEF0042C316 /* Supporting Files */,
+			);
+			path = "HueWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		974D5B591B13BDEF0042C316 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				974D5B5A1B13BDEF0042C316 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		974D5B661B13BDF00042C316 /* HueWatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				974D5B691B13BDF00042C316 /* Interface.storyboard */,
+				974D5B6C1B13BDF00042C316 /* Images.xcassets */,
+				974D5B671B13BDF00042C316 /* Supporting Files */,
+			);
+			path = "HueWatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		974D5B671B13BDF00042C316 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				974D5B681B13BDF00042C316 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		97BA89B21AF58B0A0065E86A = {
 			isa = PBXGroup;
 			children = (
 				97BA89BD1AF58B0A0065E86A /* HueWatch */,
 				97BA89DA1AF58B0A0065E86A /* HueWatchTests */,
+				974D5B581B13BDEF0042C316 /* HueWatch WatchKit Extension */,
+				974D5B661B13BDF00042C316 /* HueWatch WatchKit App */,
 				97BA89BC1AF58B0A0065E86A /* Products */,
 				F0F9E6629DC7792EB5CEF769 /* Pods */,
 				6FDA32C83D93CFA854FD7419 /* Frameworks */,
@@ -92,6 +187,8 @@
 			children = (
 				97BA89BB1AF58B0A0065E86A /* HueWatch.app */,
 				97BA89D71AF58B0A0065E86A /* HueWatchTests.xctest */,
+				974D5B571B13BDEF0042C316 /* HueWatch WatchKit Extension.appex */,
+				974D5B621B13BDF00042C316 /* HueWatch WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,6 +201,10 @@
 				97BA89C51AF58B0A0065E86A /* FirstViewController.h */,
 				97BA89C61AF58B0A0065E86A /* FirstViewController.m */,
 				97BA89C81AF58B0A0065E86A /* SecondViewController.h */,
+				97EB8E181B13C82F005F25E5 /* NSURLSession+HueWatch.h */,
+				97EB8E191B13C82F005F25E5 /* NSURLSession+HueWatch.m */,
+				97EB8E1B1B13C9AA005F25E5 /* NSString+HueWatch.h */,
+				97EB8E1C1B13C9AA005F25E5 /* NSString+HueWatch.m */,
 				97BA89C91AF58B0A0065E86A /* SecondViewController.m */,
 				97BA89CB1AF58B0A0065E86A /* Main.storyboard */,
 				97BA89CE1AF58B0A0065E86A /* Images.xcassets */,
@@ -151,6 +252,39 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		974D5B561B13BDEF0042C316 /* HueWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 974D5B761B13BDF00042C316 /* Build configuration list for PBXNativeTarget "HueWatch WatchKit Extension" */;
+			buildPhases = (
+				974D5B531B13BDEF0042C316 /* Sources */,
+				974D5B541B13BDEF0042C316 /* Frameworks */,
+				974D5B551B13BDEF0042C316 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				974D5B651B13BDF00042C316 /* PBXTargetDependency */,
+			);
+			name = "HueWatch WatchKit Extension";
+			productName = "HueWatch WatchKit Extension";
+			productReference = 974D5B571B13BDEF0042C316 /* HueWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		974D5B611B13BDF00042C316 /* HueWatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 974D5B751B13BDF00042C316 /* Build configuration list for PBXNativeTarget "HueWatch WatchKit App" */;
+			buildPhases = (
+				974D5B601B13BDF00042C316 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HueWatch WatchKit App";
+			productName = "HueWatch WatchKit App";
+			productReference = 974D5B621B13BDF00042C316 /* HueWatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		97BA89BA1AF58B0A0065E86A /* HueWatch */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97BA89E11AF58B0A0065E86A /* Build configuration list for PBXNativeTarget "HueWatch" */;
@@ -160,10 +294,12 @@
 				97BA89B81AF58B0A0065E86A /* Frameworks */,
 				97BA89B91AF58B0A0065E86A /* Resources */,
 				E21B74A17302B522856FBA6F /* Copy Pods Resources */,
+				974D5B771B13BDF00042C316 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				974D5B6F1B13BDF00042C316 /* PBXTargetDependency */,
 			);
 			name = HueWatch;
 			productName = HueWatch;
@@ -197,6 +333,13 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Jordan Zucker";
 				TargetAttributes = {
+					974D5B561B13BDEF0042C316 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					974D5B611B13BDF00042C316 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = BSKYS9EZN8;
+					};
 					97BA89BA1AF58B0A0065E86A = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -221,11 +364,31 @@
 			targets = (
 				97BA89BA1AF58B0A0065E86A /* HueWatch */,
 				97BA89D61AF58B0A0065E86A /* HueWatchTests */,
+				974D5B561B13BDEF0042C316 /* HueWatch WatchKit Extension */,
+				974D5B611B13BDF00042C316 /* HueWatch WatchKit App */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		974D5B551B13BDEF0042C316 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				974D5B5F1B13BDEF0042C316 /* Images.xcassets in Resources */,
+				974D5B631B13BDF00042C316 /* HueWatch WatchKit App.app in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		974D5B601B13BDF00042C316 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				974D5B6B1B13BDF00042C316 /* Interface.storyboard in Resources */,
+				974D5B6D1B13BDF00042C316 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97BA89B91AF58B0A0065E86A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,12 +442,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		974D5B531B13BDEF0042C316 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				974D5B5D1B13BDEF0042C316 /* InterfaceController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97BA89B71AF58B0A0065E86A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97EB8E1D1B13C9AA005F25E5 /* NSString+HueWatch.m in Sources */,
 				97BA89CA1AF58B0A0065E86A /* SecondViewController.m in Sources */,
 				97BA89C41AF58B0A0065E86A /* AppDelegate.m in Sources */,
+				97EB8E1A1B13C82F005F25E5 /* NSURLSession+HueWatch.m in Sources */,
 				97BA89C71AF58B0A0065E86A /* FirstViewController.m in Sources */,
 				97BA89C11AF58B0A0065E86A /* main.m in Sources */,
 			);
@@ -301,6 +474,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		974D5B651B13BDF00042C316 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 974D5B611B13BDF00042C316 /* HueWatch WatchKit App */;
+			targetProxy = 974D5B641B13BDF00042C316 /* PBXContainerItemProxy */;
+		};
+		974D5B6F1B13BDF00042C316 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 974D5B561B13BDEF0042C316 /* HueWatch WatchKit Extension */;
+			targetProxy = 974D5B6E1B13BDF00042C316 /* PBXContainerItemProxy */;
+		};
 		97BA89D91AF58B0A0065E86A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 97BA89BA1AF58B0A0065E86A /* HueWatch */;
@@ -309,6 +492,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		974D5B691B13BDF00042C316 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				974D5B6A1B13BDF00042C316 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		97BA89CB1AF58B0A0065E86A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -328,6 +519,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		974D5B711B13BDF00042C316 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HueWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		974D5B721B13BDF00042C316 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "HueWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		974D5B731B13BDF00042C316 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = HueWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HueWatch WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		974D5B741B13BDF00042C316 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IBSC_MODULE = HueWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HueWatch WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 		97BA89DF1AF58B0A0065E86A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -413,9 +666,11 @@
 			baseConfigurationReference = E4549570CA57793CF539D2A8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jordan Zucker (8K9Q7494TY)";
 				INFOPLIST_FILE = HueWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -424,9 +679,11 @@
 			baseConfigurationReference = D1EDBA49AA3289CAD0289199 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jordan Zucker (8K9Q7494TY)";
 				INFOPLIST_FILE = HueWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -467,6 +724,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		974D5B751B13BDF00042C316 /* Build configuration list for PBXNativeTarget "HueWatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				974D5B731B13BDF00042C316 /* Debug */,
+				974D5B741B13BDF00042C316 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		974D5B761B13BDF00042C316 /* Build configuration list for PBXNativeTarget "HueWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				974D5B711B13BDF00042C316 /* Debug */,
+				974D5B721B13BDF00042C316 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		97BA89B61AF58B0A0065E86A /* Build configuration list for PBXProject "HueWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

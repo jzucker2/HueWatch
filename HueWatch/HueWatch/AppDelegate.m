@@ -5,6 +5,7 @@
 //  Created by Jordan Zucker on 5/2/15.
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #import "AppDelegate.h"
 
@@ -17,6 +18,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
     return YES;
 }
 

@@ -9,7 +9,7 @@
 #import "FirstViewController.h"
 
 @interface FirstViewController ()
-
+@property (nonatomic) NSURLSession *hueSession;
 @end
 
 @implementation FirstViewController
@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
+
+}
+
+- (void)dealloc {
+    [self.hueSession invalidateAndCancel];
 }
 
 - (void)didReceiveMemoryWarning {
