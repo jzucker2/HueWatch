@@ -7,7 +7,7 @@
 //
 
 #import "FirstViewController.h"
-#import "NSURLSession+HueWatch.h"
+#import "JSZHueSessionManager.h"
 
 @interface FirstViewController ()
 @property (nonatomic) NSURLSession *hueSession;
@@ -30,13 +30,14 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
-        NSLog(@"responseObject: %@", responseObject);
-        NSLog(@"error: %@", error);
-    }];
-    [task resume];
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+//    self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
+//    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
+//        NSLog(@"responseObject: %@", responseObject);
+//        NSLog(@"error: %@", error);
+//    }];
+//    [task resume];
+    [[JSZHueSessionManager sharedInstance] helloWorldGet];
 }
 
 - (void)dealloc {
