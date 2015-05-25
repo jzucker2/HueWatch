@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "NSURLSession+HueWatch.h"
 
 @interface FirstViewController ()
 @property (nonatomic) NSURLSession *hueSession;
@@ -17,9 +18,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+//    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+//    self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
+//    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
+//        NSLog(@"responseObject: %@", responseObject);
+//        NSLog(@"error: %@", error);
+//    }];
+//    [task resume];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
-
+    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
+        NSLog(@"responseObject: %@", responseObject);
+        NSLog(@"error: %@", error);
+    }];
+    [task resume];
 }
 
 - (void)dealloc {

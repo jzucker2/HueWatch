@@ -12,12 +12,12 @@
 #import "NSURLSession+HueWatch.h"
 #import "NSString+HueWatch.h"
 
-static NSString * const kHueBaseURLString = @"http://10.0.1.31";
+static NSString * const kHueBaseURLString = @"http://10.0.1.31/api";
 
 @implementation NSURLSession (HueWatch)
 
 - (NSURLSessionDataTask *)hueRequest:(NSString *)URLString parameters:(NSDictionary *)parameters response:(void (^)(id, NSError *))responseBlock {
-    NSString *allParametersString = @"";
+    NSString *allParametersString = @"?";
     BOOL notFirstIteration = NO;
     for (NSString *key in parameters.allKeys) {
         if (![allParametersString hasSuffix:@"&"] &&
@@ -28,11 +28,13 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31";
         allParametersString = [allParametersString stringByAppendingString:thisParameterString];
         notFirstIteration = YES;
     }
-    NSString *finalURLString = [NSString stringWithFormat:@"%@?%@", URLString, allParametersString];
+    // Remember to remove ? if no parameters
+    NSString *finalURLString = [NSString stringWithFormat:@"%@%@", URLString, ([allParametersString isEqualToString:@"?"] ? @"": allParametersString)];
     NSURL *finalURL = [NSURL URLWithString:finalURLString relativeToURL:[NSURL URLWithString:kHueBaseURLString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:finalURL];
-    //    NSLog(@"request: %@", request);
+    NSLog(@"request: %@", request);
     return [self dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"reponse: %@", response);
         if (error) {
             DDLogError(@"data task failed: %@", error);
             responseBlock(response, error);
@@ -40,7 +42,10 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31";
         }
         id responseObject;
         if (data) {
-            responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            NSLog(@"data: %@", data);
+            NSString *responseString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"responseString: %@", responseString);
+            responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
             if (error) {
                 responseBlock(nil, error);
                 return;

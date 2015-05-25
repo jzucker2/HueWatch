@@ -10,7 +10,7 @@
 
 @implementation NSString (HueWatch)
 
-+ (NSString *)stringByEncodingURLComponent:(NSString *)unencodedString {
++ (NSString *)jsz_stringByEncodingURLComponent:(NSString *)unencodedString {
     return (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
                                                                         NULL,
                                                                         (__bridge CFStringRef)unencodedString,
