@@ -12,4 +12,6 @@
 
 - (NSURLSessionDataTask *)hueRequest:(NSString *)URLString parameters:(NSDictionary *)parameters response:(void (^)(id responseObject, NSError *error))response;
 
+- (NSURLSessionDataTask *)huePUTRequest:(NSString *)URLString parameters:(NSDictionary *)parameters response:(void (^)(id responseObject, NSError *error))response;
+
 @end

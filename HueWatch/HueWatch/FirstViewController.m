@@ -32,11 +32,28 @@
     [super viewDidAppear:animated];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper" parameters:nil response:^(id responseObject, NSError *error) {
+    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
         NSLog(@"responseObject: %@", responseObject);
         NSLog(@"error: %@", error);
     }];
     [task resume];
+    
+    NSURLSessionDataTask *task2 = [self.hueSession hueRequest:@"newdeveloper/lights/2" parameters:nil response:^(id responseObject, NSError *error) {
+        NSLog(@"responseObject: %@", responseObject);
+        NSLog(@"error: %@", error);
+    }];
+    [task2 resume];
+    
+    NSURLSessionDataTask *task3 = [self.hueSession huePUTRequest:@"newdeveloper/lights/2/state" parameters:nil response:^(id responseObject, NSError *error) {
+        
+    }];
+    [task3 resume];
+    
+//    NSURLSessionDataTask *task3 = [self.hueSession hueRequest:@"newdeveloper/lights/Living Room" parameters:nil response:^(id responseObject, NSError *error) {
+//        NSLog(@"responseObject: %@", responseObject);
+//        NSLog(@"error: %@", error);
+//    }];
+//    [task3 resume];
 }
 
 - (void)dealloc {
