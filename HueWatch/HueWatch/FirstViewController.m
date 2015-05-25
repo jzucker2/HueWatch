@@ -32,7 +32,7 @@
     [super viewDidAppear:animated];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     self.hueSession = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
+    NSURLSessionDataTask *task = [self.hueSession hueRequest:@"newdeveloper" parameters:nil response:^(id responseObject, NSError *error) {
         NSLog(@"responseObject: %@", responseObject);
         NSLog(@"error: %@", error);
     }];
