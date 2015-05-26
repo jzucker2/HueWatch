@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^JSZResponseBlock)(id responseObject, NSError *error);
+
 @interface NSURLSession (HueWatch)
 
-- (NSURLSessionDataTask *)hueRequest:(NSString *)URLString parameters:(NSDictionary *)parameters response:(void (^)(id responseObject, NSError *error))response;
+- (NSURLSessionDataTask *)hueGET:(NSString *)URLString parameters:(NSDictionary *)parameters response:(JSZResponseBlock)responseBlock;
 
-- (NSURLSessionDataTask *)huePUTRequest:(NSString *)URLString parameters:(NSDictionary *)parameters response:(void (^)(id responseObject, NSError *error))response;
+- (NSURLSessionDataTask *)huePUT:(NSString *)URLString body:(NSData *)body parameters:(NSDictionary *)parameters response:(JSZResponseBlock)responseBlock;
+- (NSURLSessionDataTask *)huePOST:(NSString *)URLString body:(NSData *)body parameters:(NSDictionary *)parameters response:(JSZResponseBlock)responseBlock;
 
 @end
