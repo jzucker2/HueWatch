@@ -14,6 +14,7 @@
 + (instancetype)hueStateWithJSON:(NSDictionary *)dictionary;
 
 - (NSData *)JSONData;
+- (NSDictionary *)JSONDict;
 
 @property (nonatomic, copy) NSNumber *hue;
 @property (nonatomic, getter=isOn) BOOL on;

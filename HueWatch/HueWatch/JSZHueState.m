@@ -33,13 +33,15 @@
 }
 
 - (NSDictionary *)JSONDict {
-    return @{
-             @"on": @(self.isOn)
-             };
+    NSMutableDictionary *JSONDict = [@{} mutableCopy];
+    if (self.hue) {
+        JSONDict[@"hue"] = self.hue;
+    }
+    return [JSONDict copy];
 }
 
 - (NSData *)JSONData {
-    return [NSJSONSerialization dataWithJSONObject:[self JSONDict] options:kNilOptions error:nil];
+    return [NSJSONSerialization dataWithJSONObject:self.JSONDict options:kNilOptions error:nil];
 }
 
 @end
