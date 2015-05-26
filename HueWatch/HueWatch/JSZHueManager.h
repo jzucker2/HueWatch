@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class JSZHueState;
+@class JSZHueLight;
+
 @interface JSZHueManager : NSObject
 
 @property (nonatomic, readonly) NSMutableDictionary *lights;
@@ -15,5 +18,7 @@
 + (instancetype)sharedInstance;
 
 - (void)searchForLights;
+
+- (void)setState:(JSZHueState *)state forLight:(JSZHueLight *)light;
 
 @end

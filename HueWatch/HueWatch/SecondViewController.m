@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
+#import <BlocksKit/BlocksKit.h>
+
 #import "SecondViewController.h"
 #import "JSZHueManager.h"
+#import "JSZHueLight.h"
+#import "JSZHueState.h"
 
 @interface SecondViewController ()
 
@@ -28,6 +32,16 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     NSLog(@"%@", [JSZHueManager sharedInstance].lights);
+    NSDictionary *lights = [JSZHueManager sharedInstance].lights;
+    NSDictionary *livingRoomLightAndKeyDict = [lights bk_select:^BOOL(id key, id obj) {
+        JSZHueLight *light = (JSZHueLight *)obj;
+        return [light.name isEqualToString:@"Living Room"];
+    }];
+    
+    JSZHueState *state = [[JSZHueState alloc] init];
+    state.on = YES;
+    [[JSZHueManager sharedInstance] setState:state forLight:livingRoomLightAndKeyDict.allValues.firstObject];
+    
 }
 
 - (void)didReceiveMemoryWarning {

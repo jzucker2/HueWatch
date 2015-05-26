@@ -9,8 +9,8 @@
 #import "JSZHueState.h"
 
 @interface JSZHueState ()
-@property (nonatomic, copy, readwrite) NSNumber *hue;
-@property (nonatomic) BOOL on;
+//@property (nonatomic, copy) NSNumber *hue;
+//@property (nonatomic) BOOL on;
 @end
 
 @implementation JSZHueState
@@ -30,6 +30,16 @@
 
 + (instancetype)hueStateWithJSON:(NSDictionary *)dictionary {
     return [[self alloc] initWithJSON:dictionary];
+}
+
+- (NSDictionary *)JSONDict {
+    return @{
+             @"on": @(self.isOn)
+             };
+}
+
+- (NSData *)JSONData {
+    return [NSJSONSerialization dataWithJSONObject:[self JSONDict] options:kNilOptions error:nil];
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "JSZHueManager.h"
 #import "NSURLSession+HueWatch.h"
 #import "JSZHueLight.h"
+#import "JSZHueState.h"
 
 @interface JSZHueManager ()
 @property (nonatomic, readwrite) NSMutableDictionary *lights;
@@ -64,6 +65,27 @@
         
     }];
     [searchForLightsTask resume];
+}
+
+- (void)setState:(JSZHueState *)state forLight:(JSZHueLight *)light {
+////    JSZWeakify(self);
+//    NSString *key = [self.lights bk_match:^BOOL(id key, id obj) {
+////        JSZStrongify(self);
+//        JSZHueLight *checkingLight = (JSZHueLight *)obj;
+//        return [checkingLight.uniqueID isEqualToString:light.uniqueID];
+//    }];
+    NSDictionary *lightAndValue = [self.lights bk_select:^BOOL(id key, id obj) {
+        JSZHueLight *checkingLight = (JSZHueLight *)obj;
+        return [checkingLight.uniqueID isEqualToString:light.uniqueID];
+    }];
+    NSAssert([lightAndValue.allKeys count] == 1, @"There should only be one matching light");
+    NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightAndValue.allKeys.firstObject];
+    NSData *bodyData = state.JSONData;
+    NSURLSessionDataTask *stateForLightTask = [self.hueSession huePUT:lightStateString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
+        NSLog(@"responseObject: %@", responseObject);
+        NSLog(@"error: %@", error);
+    }];
+    [stateForLightTask resume];
 }
 
 @end
