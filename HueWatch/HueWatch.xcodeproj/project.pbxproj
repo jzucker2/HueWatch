@@ -13,6 +13,9 @@
 		974D5B6B1B13BDF00042C316 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B691B13BDF00042C316 /* Interface.storyboard */; };
 		974D5B6D1B13BDF00042C316 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 974D5B6C1B13BDF00042C316 /* Images.xcassets */; };
 		974D5B701B13BDF00042C316 /* HueWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 974D5B571B13BDEF0042C316 /* HueWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		97888C501B13F966000C7221 /* JSZHueManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C4F1B13F966000C7221 /* JSZHueManager.m */; };
+		97888C531B13FB9F000C7221 /* JSZHueLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C521B13FB9F000C7221 /* JSZHueLight.m */; };
+		97888C561B13FC1B000C7221 /* JSZHueState.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C551B13FC1B000C7221 /* JSZHueState.m */; };
 		97BA89C11AF58B0A0065E86A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C01AF58B0A0065E86A /* main.m */; };
 		97BA89C41AF58B0A0065E86A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C31AF58B0A0065E86A /* AppDelegate.m */; };
 		97BA89C71AF58B0A0065E86A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C61AF58B0A0065E86A /* FirstViewController.m */; };
@@ -75,6 +78,13 @@
 		974D5B681B13BDF00042C316 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		974D5B6A1B13BDF00042C316 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		974D5B6C1B13BDF00042C316 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		97888C4E1B13F966000C7221 /* JSZHueManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSZHueManager.h; sourceTree = "<group>"; };
+		97888C4F1B13F966000C7221 /* JSZHueManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZHueManager.m; sourceTree = "<group>"; };
+		97888C511B13FB9F000C7221 /* JSZHueLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSZHueLight.h; sourceTree = "<group>"; };
+		97888C521B13FB9F000C7221 /* JSZHueLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZHueLight.m; sourceTree = "<group>"; };
+		97888C541B13FC1B000C7221 /* JSZHueState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSZHueState.h; sourceTree = "<group>"; };
+		97888C551B13FC1B000C7221 /* JSZHueState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZHueState.m; sourceTree = "<group>"; };
+		97888C581B1401A4000C7221 /* JSZMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSZMacros.h; sourceTree = "<group>"; };
 		97BA89BB1AF58B0A0065E86A /* HueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BA89BF1AF58B0A0065E86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BA89C01AF58B0A0065E86A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +179,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		97888C571B13FC37000C7221 /* HueAPI */ = {
+			isa = PBXGroup;
+			children = (
+				97888C4E1B13F966000C7221 /* JSZHueManager.h */,
+				97888C4F1B13F966000C7221 /* JSZHueManager.m */,
+				97888C581B1401A4000C7221 /* JSZMacros.h */,
+				97888C511B13FB9F000C7221 /* JSZHueLight.h */,
+				97888C521B13FB9F000C7221 /* JSZHueLight.m */,
+				97888C541B13FC1B000C7221 /* JSZHueState.h */,
+				97888C551B13FC1B000C7221 /* JSZHueState.m */,
+				97EB8E181B13C82F005F25E5 /* NSURLSession+HueWatch.h */,
+				97EB8E191B13C82F005F25E5 /* NSURLSession+HueWatch.m */,
+				97EB8E1B1B13C9AA005F25E5 /* NSString+HueWatch.h */,
+				97EB8E1C1B13C9AA005F25E5 /* NSString+HueWatch.m */,
+			);
+			name = HueAPI;
+			sourceTree = "<group>";
+		};
 		97BA89B21AF58B0A0065E86A = {
 			isa = PBXGroup;
 			children = (
@@ -201,11 +229,8 @@
 				97BA89C51AF58B0A0065E86A /* FirstViewController.h */,
 				97BA89C61AF58B0A0065E86A /* FirstViewController.m */,
 				97BA89C81AF58B0A0065E86A /* SecondViewController.h */,
-				97EB8E181B13C82F005F25E5 /* NSURLSession+HueWatch.h */,
-				97EB8E191B13C82F005F25E5 /* NSURLSession+HueWatch.m */,
-				97EB8E1B1B13C9AA005F25E5 /* NSString+HueWatch.h */,
-				97EB8E1C1B13C9AA005F25E5 /* NSString+HueWatch.m */,
 				97BA89C91AF58B0A0065E86A /* SecondViewController.m */,
+				97888C571B13FC37000C7221 /* HueAPI */,
 				97BA89CB1AF58B0A0065E86A /* Main.storyboard */,
 				97BA89CE1AF58B0A0065E86A /* Images.xcassets */,
 				97BA89D01AF58B0A0065E86A /* LaunchScreen.xib */,
@@ -454,7 +479,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97888C561B13FC1B000C7221 /* JSZHueState.m in Sources */,
 				97EB8E1D1B13C9AA005F25E5 /* NSString+HueWatch.m in Sources */,
+				97888C531B13FB9F000C7221 /* JSZHueLight.m in Sources */,
+				97888C501B13F966000C7221 /* JSZHueManager.m in Sources */,
 				97BA89CA1AF58B0A0065E86A /* SecondViewController.m in Sources */,
 				97BA89C41AF58B0A0065E86A /* AppDelegate.m in Sources */,
 				97EB8E1A1B13C82F005F25E5 /* NSURLSession+HueWatch.m in Sources */,

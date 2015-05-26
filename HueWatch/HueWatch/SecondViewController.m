@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "JSZHueManager.h"
 
 @interface SecondViewController ()
 
@@ -17,6 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[JSZHueManager sharedInstance] searchForLights];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    NSLog(@"%@", [JSZHueManager sharedInstance].lights);
 }
 
 - (void)didReceiveMemoryWarning {
