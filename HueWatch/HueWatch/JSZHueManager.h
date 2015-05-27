@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class JSZHueState;
+//@class JSZHueState;
+@class JSZRequestHueState;
 @class JSZHueLight;
 
 @interface JSZHueManager : NSObject
@@ -19,6 +20,6 @@
 
 - (void)searchForLights;
 
-- (void)setState:(JSZHueState *)state forLight:(JSZHueLight *)light;
+- (void)setState:(JSZRequestHueState *)state forLight:(JSZHueLight *)light;
 
 @end

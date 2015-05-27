@@ -17,5 +17,10 @@
 @property (nonatomic, copy, readonly) NSString *name;
 @property (nonatomic, readonly) JSZHueState *state;
 @property (nonatomic, copy, readonly) NSString *uniqueID;
+@property (nonatomic, copy, readonly) NSString *type;
+@property (nonatomic, copy, readonly) NSString *modelID;
+@property (nonatomic, copy, readonly) NSString *manufactureName;
+@property (nonatomic, copy, readonly) NSString *softwareVersion;
+@property (nonatomic, readonly) id pointsymbol;
 
 @end

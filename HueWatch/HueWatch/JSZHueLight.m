@@ -7,12 +7,17 @@
 //
 
 #import "JSZHueLight.h"
-#import "JSZHueState.h"
+#import "JSZResponseHueState.h"
 
 @interface JSZHueLight ()
 @property (nonatomic, copy, readwrite) NSString *name;
 @property (nonatomic, readwrite) JSZHueState *state;
 @property (nonatomic, copy, readwrite) NSString *uniqueID;
+@property (nonatomic, copy, readwrite) NSString *type;
+@property (nonatomic, copy, readwrite) NSString *modelID;
+@property (nonatomic, copy, readwrite) NSString *manufactureName;
+@property (nonatomic, copy, readwrite) NSString *softwareVersion;
+@property (nonatomic, readwrite) id pointsymbol;
 
 @end
 
@@ -23,7 +28,13 @@
     if (self) {
         _name = dictionary[@"name"];
         _uniqueID = dictionary[@"uniqueid"];
-        _state = [JSZHueState hueStateWithJSON:dictionary[@"state"]];
+        _state = [JSZResponseHueState hueStateWithJSON:dictionary[@"state"]];
+        _state.light = self;
+        _type = dictionary[@"type"];
+        _modelID = dictionary[@"modelid"];
+        _manufactureName = dictionary[@"manufacturername"];
+        _softwareVersion = dictionary[@"swversion"];
+        _pointsymbol = dictionary[@"pointsymbol"];
     }
     return self;
 }

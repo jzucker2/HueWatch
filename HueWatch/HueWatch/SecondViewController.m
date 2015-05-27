@@ -12,6 +12,7 @@
 #import "JSZHueManager.h"
 #import "JSZHueLight.h"
 #import "JSZHueState.h"
+#import "JSZRequestHueState.h"
 
 @interface SecondViewController ()
 
@@ -38,8 +39,10 @@
         return [light.name isEqualToString:@"Living Room"];
     }];
     
-    JSZHueState *state = [[JSZHueState alloc] init];
-    state.on = YES;
+//    JSZHueState *state = [[JSZHueState alloc] init];
+//    state.on = @YES;
+    JSZRequestHueState *state = [[JSZRequestHueState alloc] init];
+    state.on = @YES;
     [[JSZHueManager sharedInstance] setState:state forLight:livingRoomLightAndKeyDict.allValues.firstObject];
     
 }
