@@ -51,6 +51,7 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
         if (data) {
             responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if (error) {
+                DDLogError(@"json serialization error: %@", error);
                 responseBlock(nil, error);
                 return;
             }
@@ -74,6 +75,7 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
         if (data) {
             responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if (error) {
+                DDLogError(@"json serialization error: %@", error);
                 responseBlock(nil, error);
                 return;
             }
@@ -97,6 +99,7 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
         if (data) {
             responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             if (error) {
+                DDLogError(@"json serialization error: %@", error);
                 responseBlock(nil, error);
                 return;
             }

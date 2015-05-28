@@ -7,12 +7,14 @@
 //
 
 #import <BlocksKit/BlocksKit.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #import "JSZMacros.h"
 #import "JSZHueManager.h"
 #import "NSURLSession+HueWatch.h"
 #import "JSZHueLight.h"
-#import "JSZHueState.h"
+//#import "JSZHueState.h"
+#import "JSZRequestHueState.h"
 
 @interface JSZHueManager ()
 @property (nonatomic, readwrite) NSMutableDictionary *lights;
@@ -63,29 +65,73 @@
         [self.lights addEntriesFromDictionary:lightsDictionary];
         
         
+        
     }];
     [searchForLightsTask resume];
 }
 
-- (void)setState:(JSZHueState *)state forLight:(JSZHueLight *)light {
-////    JSZWeakify(self);
-//    NSString *key = [self.lights bk_match:^BOOL(id key, id obj) {
-////        JSZStrongify(self);
-//        JSZHueLight *checkingLight = (JSZHueLight *)obj;
-//        return [checkingLight.uniqueID isEqualToString:light.uniqueID];
-//    }];
-    NSDictionary *lightAndValue = [self.lights bk_select:^BOOL(id key, id obj) {
-        JSZHueLight *checkingLight = (JSZHueLight *)obj;
-        return [checkingLight.uniqueID isEqualToString:light.uniqueID];
-    }];
-    NSAssert([lightAndValue.allKeys count] == 1, @"There should only be one matching light");
-    NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightAndValue.allKeys.firstObject];
+- (void)setState:(JSZRequestHueState *)state forLight:(JSZHueLight *)light {
+    NSNumber *lightIndex = [self indexForLight:light];
+    if (!lightIndex) {
+        DDLogError(@"no index found for light: %@", light);
+        return;
+    }
+    [self setState:state forLightIndex:[lightIndex unsignedIntegerValue]];
+}
+
+- (void)setState:(JSZRequestHueState *)state forLightIndex:(NSUInteger)lightIndex {
+    NSParameterAssert(state);
+    NSParameterAssert((lightIndex > 0) &&
+                      (lightIndex <= self.lights.allKeys.count));
+    NSNumber *lightNumber = @(lightIndex);
+    NSParameterAssert(self.lights[lightNumber]);
+    NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightNumber];
     NSData *bodyData = state.JSONData;
     NSURLSessionDataTask *stateForLightTask = [self.hueSession huePUT:lightStateString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
         NSLog(@"responseObject: %@", responseObject);
         NSLog(@"error: %@", error);
     }];
     [stateForLightTask resume];
+}
+
+- (void)setName:(NSString *)name forLightIndex:(NSUInteger)lightIndex {
+    NSParameterAssert(name);
+    NSParameterAssert((lightIndex > 0) &&
+                      (lightIndex <= self.lights.allKeys.count));
+    NSNumber *lightNumber = @(lightIndex);
+    NSParameterAssert(self.lights[lightNumber]);
+    NSString *lightRenameString = [NSString stringWithFormat:@"newdeveloper/lights/%@", lightNumber];
+    NSDictionary *renameDictionary = @{
+                                       @"name" : name
+                                       };
+    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:renameDictionary options:kNilOptions error:nil];
+    NSURLSessionDataTask *renameTask = [self.hueSession huePUT:lightRenameString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
+        NSLog(@"responseObject: %@", responseObject);
+        NSLog(@"error: %@", error);
+    }];
+    [renameTask resume];
+}
+
+- (void)setName:(NSString *)name forLight:(JSZHueLight *)light {
+    NSNumber *lightIndex = [self indexForLight:light];
+    if (!lightIndex) {
+        DDLogError(@"no index found for light: %@", light);
+        return;
+    }
+    [self setName:name forLightIndex:[lightIndex unsignedIntegerValue]];
+}
+
+- (NSNumber *)indexForLight:(JSZHueLight *)light {
+    NSDictionary *lightAndValue = [self.lights bk_select:^BOOL(id key, id obj) {
+        JSZHueLight *checkingLight = (JSZHueLight *)obj;
+        return [checkingLight.uniqueID isEqualToString:light.uniqueID];
+    }];
+    NSAssert([lightAndValue.allKeys count] == 1, @"There should only be one matching light");
+    if (lightAndValue.allKeys.count == 0) {
+        return nil;
+    } else {
+        return lightAndValue.allKeys.firstObject;
+    }
 }
 
 @end

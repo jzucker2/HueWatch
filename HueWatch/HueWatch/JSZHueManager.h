@@ -21,5 +21,9 @@
 - (void)searchForLights;
 
 - (void)setState:(JSZRequestHueState *)state forLight:(JSZHueLight *)light;
+- (void)setState:(JSZRequestHueState *)state forLightIndex:(NSUInteger)lightIndex;
+- (void)setName:(NSString *)name forLightIndex:(NSUInteger)lightIndex;
+- (void)setName:(NSString *)name forLight:(JSZHueLight *)light;
+- (NSNumber *)indexForLight:(JSZHueLight *)light;
 
 @end
