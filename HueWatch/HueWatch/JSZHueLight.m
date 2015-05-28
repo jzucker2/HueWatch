@@ -43,4 +43,18 @@
     return [[self alloc] initWithJSON:dictionary];
 }
 
+- (NSString *)description {
+    NSDictionary *descriptionDictionary = @{
+                                            @"name" : self.name,
+                                            @"uniqueID" : self.uniqueID,
+                                            @"state" : self.state,
+                                            @"type" : self.type,
+                                            @"modelID" : self.modelID,
+                                            @"manufacturerName" : self.manufactureName,
+                                            @"softwareVersion" : self.softwareVersion,
+                                            @"pointsSymbol" : self.pointsymbol
+                                            };
+    return [NSString stringWithFormat:@"%@", descriptionDictionary];
+}
+
 @end

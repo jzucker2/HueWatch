@@ -84,12 +84,26 @@
     NSParameterAssert((lightIndex > 0) &&
                       (lightIndex <= self.lights.allKeys.count));
     NSNumber *lightNumber = @(lightIndex);
-    NSParameterAssert(self.lights[lightNumber]);
+    NSParameterAssert(self.lights[[lightNumber stringValue]]);
     NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightNumber];
     NSData *bodyData = state.JSONData;
     NSURLSessionDataTask *stateForLightTask = [self.hueSession huePUT:lightStateString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
         NSLog(@"responseObject: %@", responseObject);
         NSLog(@"error: %@", error);
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *attributeResponseDictionary in responseObject) {
+                NSLog(@"dictionary: %@", attributeResponseDictionary);
+                if (attributeResponseDictionary[@"success"]) {
+                    NSDictionary *successDictionary = attributeResponseDictionary[@"success"];
+                    NSLog(@"item: %@", successDictionary);
+                    for (NSString *pathKey in successDictionary) {
+                        NSLog(@"pathKey: %@", pathKey);
+                        NSString *attribute = pathKey.lastPathComponent;
+                        NSLog(@"attribute: %@", attribute);
+                    }
+                }
+            }
+        }
     }];
     [stateForLightTask resume];
 }
@@ -99,7 +113,7 @@
     NSParameterAssert((lightIndex > 0) &&
                       (lightIndex <= self.lights.allKeys.count));
     NSNumber *lightNumber = @(lightIndex);
-    NSParameterAssert(self.lights[lightNumber]);
+    NSParameterAssert(self.lights[[lightNumber stringValue]]);
     NSString *lightRenameString = [NSString stringWithFormat:@"newdeveloper/lights/%@", lightNumber];
     NSDictionary *renameDictionary = @{
                                        @"name" : name
@@ -130,7 +144,8 @@
     if (lightAndValue.allKeys.count == 0) {
         return nil;
     } else {
-        return lightAndValue.allKeys.firstObject;
+        
+        return @([lightAndValue.allKeys.firstObject integerValue]);
     }
 }
 

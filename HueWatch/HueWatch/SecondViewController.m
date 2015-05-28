@@ -34,15 +34,21 @@
     [super viewDidDisappear:animated];
     NSLog(@"%@", [JSZHueManager sharedInstance].lights);
     NSDictionary *lights = [JSZHueManager sharedInstance].lights;
+//    NSDictionary *livingRoomLightAndKeyDict = [lights bk_select:^BOOL(id key, id obj) {
+//        JSZHueLight *light = (JSZHueLight *)obj;
+//        return [light.name isEqualToString:@"Living Room"];
+//    }];
     NSDictionary *livingRoomLightAndKeyDict = [lights bk_select:^BOOL(id key, id obj) {
         JSZHueLight *light = (JSZHueLight *)obj;
-        return [light.name isEqualToString:@"Living Room"];
+        return [light.name isEqualToString:@"Bedroom Lamp"];
     }];
+
     
 //    JSZHueState *state = [[JSZHueState alloc] init];
 //    state.on = @YES;
     JSZRequestHueState *state = [[JSZRequestHueState alloc] init];
     state.on = @YES;
+    state.hue = @25500;
     [[JSZHueManager sharedInstance] setState:state forLight:livingRoomLightAndKeyDict.allValues.firstObject];
     
 }
