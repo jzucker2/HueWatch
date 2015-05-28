@@ -15,6 +15,7 @@
 #import "JSZHueLight.h"
 //#import "JSZHueState.h"
 #import "JSZRequestHueState.h"
+#import "JSZResponseHueState.h"
 
 @interface JSZHueManager ()
 @property (nonatomic, readwrite) NSMutableDictionary *lights;
@@ -94,12 +95,17 @@
             for (NSDictionary *attributeResponseDictionary in responseObject) {
                 NSLog(@"dictionary: %@", attributeResponseDictionary);
                 if (attributeResponseDictionary[@"success"]) {
+                    JSZHueLight *light = self.lights[[lightNumber stringValue]];
+                    JSZResponseHueState *state = light.state;
                     NSDictionary *successDictionary = attributeResponseDictionary[@"success"];
                     NSLog(@"item: %@", successDictionary);
                     for (NSString *pathKey in successDictionary) {
                         NSLog(@"pathKey: %@", pathKey);
                         NSString *attribute = pathKey.lastPathComponent;
                         NSLog(@"attribute: %@", attribute);
+                        if ([attribute isEqualToString:@"on"]) {
+                            
+                        }
                     }
                 }
             }
