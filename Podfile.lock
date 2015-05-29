@@ -25,15 +25,24 @@ PODS:
   - Mantle (2.0.2):
     - Mantle/extobjc (= 2.0.2)
   - Mantle/extobjc (2.0.2)
+  - Realm (0.93.1):
+    - Realm/Headers (= 0.93.1)
+  - Realm+JSON (0.2.10):
+    - Realm (~> 0.92)
+  - Realm/Headers (0.93.1)
 
 DEPENDENCIES:
   - BlocksKit (~> 2.2.5)
   - CocoaLumberjack (~> 2.0)
   - Mantle (~> 2.0)
+  - Realm (~> 0.93)
+  - Realm+JSON (~> 0.2)
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
   Mantle: 967fd31ea0220890b2e76589198996b534bb3fb1
+  Realm: 694b93846a0772c904f9e0cc3559d1bc856d931e
+  Realm+JSON: 9a6ad2bd16fc4b9a646aaaaf24c4aa6e9ffda09e
 
-COCOAPODS: 0.37.1
+COCOAPODS: 0.37.2
