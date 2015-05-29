@@ -95,9 +95,7 @@
     NSNumber *lightNumber = @(lightIndex);
     NSParameterAssert(self.lights[[lightNumber stringValue]]);
     NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightNumber];
-//    NSData *bodyData = state.JSONData;
-    NSDictionary *jsonDict = [MTLJSONAdapter JSONDictionaryFromModel:state error:nil];
-    NSData *bodyData = [NSJSONSerialization dataWithJSONObject:jsonDict options:kNilOptions error:nil];
+    NSData *bodyData = state.JSONData;
     NSURLSessionDataTask *stateForLightTask = [self.hueSession huePUT:lightStateString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
 //        NSLog(@"responseObject: %@", responseObject);
 //        NSLog(@"error: %@", error);

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "JSZHueState.h"
+#import "JSZHueStateAdapter.h"
 
 @interface JSZHueState ()
 //@property (nonatomic, copy) NSNumber *hue;
 //@property (nonatomic) BOOL on;
+@property (nonatomic) JSZHueStateAdapter *adapter;
 @end
 
 @implementation JSZHueState
@@ -41,6 +43,22 @@
 //    return [[self alloc] initWithJSON:dictionary];
 //}
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _adapter = [[JSZHueStateAdapter alloc] initWithModelClass:[self class]];
+    }
+    return self;
+}
+
+//- (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
+//    self = [super initWithDictionary:dictionaryValue error:error];
+//    if (self) {
+//        _adapter = [[JSZHueStateAdapter alloc] initWithModelClass:[self class]];
+//    }
+//    return self;
+//}
+
 + (instancetype)hueStateWithJSON:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
     return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:dictionaryValue error:error];
 }
@@ -57,6 +75,16 @@
              @"brightness" : @"bri"
              };
 }
+
+- (NSDictionary *)JSONDict {
+    return [self.adapter JSONDictionaryFromModel:self error:nil];
+}
+
+- (NSData *)JSONData {
+    return [NSJSONSerialization dataWithJSONObject:self.JSONDict options:kNilOptions error:nil];
+}
+
+
 
 //- (NSDictionary *)JSONDict {
 //    NSMutableDictionary *JSONDict = [@{} mutableCopy];

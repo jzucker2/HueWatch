@@ -17,8 +17,8 @@
 //+ (instancetype)hueStateWithJSON:(NSDictionary *)dictionary;
 + (instancetype)hueStateWithJSON:(NSDictionary *)dictionaryValue error:(NSError **)error;
 //
-//- (NSData *)JSONData;
-//- (NSDictionary *)JSONDict;
+- (NSData *)JSONData;
+- (NSDictionary *)JSONDict;
 
 //@property (nonatomic, weak) JSZHueLight *light;
 @property (nonatomic, copy) NSNumber *hue;
