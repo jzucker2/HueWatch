@@ -7,18 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
 @class JSZHueLight;
 
-@interface JSZHueState : NSObject
+@interface JSZHueState : MTLModel <MTLJSONSerializing>
 
-- (instancetype)initWithJSON:(NSDictionary *)dictionary;
-+ (instancetype)hueStateWithJSON:(NSDictionary *)dictionary;
+//- (instancetype)initWithJSON:(NSDictionary *)dictionary;
+//+ (instancetype)hueStateWithJSON:(NSDictionary *)dictionary;
++ (instancetype)hueStateWithJSON:(NSDictionary *)dictionaryValue error:(NSError **)error;
+//
+//- (NSData *)JSONData;
+//- (NSDictionary *)JSONDict;
 
-- (NSData *)JSONData;
-- (NSDictionary *)JSONDict;
-
-@property (nonatomic, weak) JSZHueLight *light;
+//@property (nonatomic, weak) JSZHueLight *light;
 @property (nonatomic, copy) NSNumber *hue;
 @property (nonatomic, copy, getter=isOn) NSNumber *on;
 @property (nonatomic, copy) NSNumber *brightness;
@@ -27,7 +29,13 @@
 @property (nonatomic, copy) NSString *alert;
 @property (nonatomic, copy) NSString *effect;
 @property (nonatomic) NSValue *xy;
-//@property (nonatomic, copy) NSNumber
-//@property (nonatomic, copy) NSString *softwareVersion;
+//@property (nonatomic) uint16_t hue;
+//@property (nonatomic, getter=isOn) BOOL *on;
+//@property (nonatomic, copy) NSNumber *brightness;
+//@property (nonatomic, copy) NSNumber *saturation;
+//@property (nonatomic, copy) NSNumber *colorTemperature;
+//@property (nonatomic, copy) NSString *alert;
+//@property (nonatomic, copy) NSString *effect;
+//@property (nonatomic) NSValue *xy;
 
 @end

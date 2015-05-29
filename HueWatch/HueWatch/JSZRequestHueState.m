@@ -10,32 +10,32 @@
 
 @implementation JSZRequestHueState
 
-- (NSDictionary *)JSONDict {
-    NSMutableDictionary *returningDict = [[super JSONDict] mutableCopy];
-    if (self.transitionTime) {
-        returningDict[@"transitiontime"] = self.transitionTime;
-    }
-    if (self.brightnessIncrement &&
-        !self.brightness) {
-        returningDict[@"bri_inc"] = self.brightnessIncrement;
-    }
-    if (self.saturationIncrement &&
-        !self.saturation) {
-        returningDict[@"sat_inc"] = self.saturationIncrement;
-    }
-    if (self.hueIncrement &&
-        !self.hue) {
-        returningDict[@"hue_inc"] = self.hueIncrement;
-    }
-    if (self.colorTemperatureIncrement &&
-        !self.colorTemperature) {
-        returningDict[@"ct_inc"] = self.colorTemperatureIncrement;
-    }
-    if (self.xyIncrement &&
-        !self.xy) {
-        returningDict[@"xy_inc"] = self.xyIncrement;
-    }
-    return [returningDict copy];
-}
+//- (NSDictionary *)JSONDict {
+//    NSMutableDictionary *returningDict = [[super JSONDict] mutableCopy];
+//    if (self.transitionTime) {
+//        returningDict[@"transitiontime"] = self.transitionTime;
+//    }
+//    if (self.brightnessIncrement &&
+//        !self.brightness) {
+//        returningDict[@"bri_inc"] = self.brightnessIncrement;
+//    }
+//    if (self.saturationIncrement &&
+//        !self.saturation) {
+//        returningDict[@"sat_inc"] = self.saturationIncrement;
+//    }
+//    if (self.hueIncrement &&
+//        !self.hue) {
+//        returningDict[@"hue_inc"] = self.hueIncrement;
+//    }
+//    if (self.colorTemperatureIncrement &&
+//        !self.colorTemperature) {
+//        returningDict[@"ct_inc"] = self.colorTemperatureIncrement;
+//    }
+//    if (self.xyIncrement &&
+//        !self.xy) {
+//        returningDict[@"xy_inc"] = self.xyIncrement;
+//    }
+//    return [returningDict copy];
+//}
 
 @end

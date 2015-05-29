@@ -46,7 +46,7 @@
     
 //    JSZHueState *state = [[JSZHueState alloc] init];
 //    state.on = @YES;
-    JSZRequestHueState *state = [[JSZRequestHueState alloc] init];
+    JSZHueState *state = [[JSZHueState alloc] init];
     state.on = @YES;
     state.hue = @25500;
     [[JSZHueManager sharedInstance] setState:state forLight:livingRoomLightAndKeyDict.allValues.firstObject];

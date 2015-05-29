@@ -32,16 +32,16 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
     NSString *finalURLString = [NSString stringWithFormat:@"%@%@", URLString, ([allParametersString isEqualToString:@"?"] ? @"": allParametersString)];
     NSURL *finalURL = [NSURL URLWithString:finalURLString relativeToURL:[NSURL URLWithString:kHueBaseURLString]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:finalURL];
-    NSLog(@"request: %@", request);
+//    NSLog(@"request: %@", request);
     request.HTTPBody = body;
     return request;
 }
 
 - (NSURLSessionDataTask *)hueGET:(NSString *)URLString parameters:(NSDictionary *)parameters response:(JSZResponseBlock)responseBlock {
     NSMutableURLRequest *request = [self hueRequestURLString:URLString parameters:parameters body:nil];
-    NSLog(@"request: %@", request);
+//    NSLog(@"request: %@", request);
     return [self dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"reponse: %@", response);
+//        NSLog(@"reponse: %@", response);
         if (error) {
             DDLogError(@"data task failed: %@", error);
             responseBlock(response, error);
@@ -65,7 +65,7 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
     request.HTTPMethod = @"PUT";
     NSLog(@"request: %@", request);
     return [self dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"reponse: %@", response);
+//        NSLog(@"reponse: %@", response);
         if (error) {
             DDLogError(@"data task failed: %@", error);
             responseBlock(response, error);
@@ -89,7 +89,7 @@ static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
     request.HTTPMethod = @"POST";
     NSLog(@"request: %@", request);
     return [self dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"reponse: %@", response);
+//        NSLog(@"reponse: %@", response);
         if (error) {
             DDLogError(@"data task failed: %@", error);
             responseBlock(response, error);
