@@ -56,11 +56,14 @@
 }
 
 - (void)searchForLights {
-    JSZWeakify(self);
+//    JSZWeakify(self);
     NSURLSessionDataTask *searchForLightsTask = [self.hueSession hueGET:@"newdeveloper/lights" parameters:nil response:^(id responseObject, NSError *error) {
-        JSZStrongify(self);
+//        JSZStrongify(self);
 //        NSLog(@"responseObject: %@", responseObject);
 //        NSLog(@"error: %@", error);
+        if (!responseObject) {
+            return;
+        }
         NSAssert([responseObject isKindOfClass:[NSDictionary class]], @"Response object for all lights is not of class dictionary");
         NSDictionary *responseDict = (NSDictionary *)responseObject;
 //        NSDictionary *lightsDictionary = [responseDict bk_map:^id(id key, id obj) {
@@ -79,6 +82,7 @@
             JSZHueLight *light = [[JSZHueLight alloc] init];
             NSDictionary *hueLightInfo = responseDict[key];
             NSLog(@"hueLightInfo: %@", hueLightInfo);
+            light.index = key.integerValue;
             light.name = hueLightInfo[@"name"];
             light.uniqueID = hueLightInfo[@"uniqueid"];
             light.manufacturerName = hueLightInfo[@"manufacturername"];

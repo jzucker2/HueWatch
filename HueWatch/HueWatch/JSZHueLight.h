@@ -16,6 +16,7 @@
 //+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionary;
 //+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionaryValue error:(NSError **)error;
 
+@property NSInteger index;
 @property NSString *name;
 @property JSZHueState *state;
 @property NSString *uniqueID;

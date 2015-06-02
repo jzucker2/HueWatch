@@ -7,6 +7,7 @@
 //
 
 #import <BlocksKit/BlocksKit.h>
+#import <Realm/Realm.h>
 
 #import "SecondViewController.h"
 #import "JSZHueManager.h"
@@ -32,6 +33,11 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *results = [JSZHueLight allObjectsInRealm:realm];
+    NSLog(@"results: %@", results);
+    
 //    NSLog(@"%@", [JSZHueManager sharedInstance].lights);
 //    NSDictionary *lights = [JSZHueManager sharedInstance].lights;
 ////    NSDictionary *livingRoomLightAndKeyDict = [lights bk_select:^BOOL(id key, id obj) {

@@ -12,7 +12,7 @@
 #import "NSURLSession+HueWatch.h"
 #import "NSString+HueWatch.h"
 
-static NSString * const kHueBaseURLString = @"http://10.0.1.31/api/";
+static NSString * const kHueBaseURLString = @"http://10.0.1.164/api/";
 
 @implementation NSURLSession (HueWatch)
 
