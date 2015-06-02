@@ -12,7 +12,7 @@
 
 //- (instancetype)initWithJSON:(NSDictionary *)dictionary;
 //+ (instancetype)hueStateWithJSON:(NSDictionary *)dictionary;
-@property (nonatomic, copy) NSString *colorMode;
-@property (nonatomic, copy, getter=isReachable) NSNumber *reachable;
+//@property (nonatomic, copy) NSString *colorMode;
+//@property (nonatomic, copy, getter=isReachable) NSNumber *reachable;
 
 @end

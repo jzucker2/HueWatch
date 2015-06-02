@@ -10,11 +10,11 @@
 
 @interface JSZRequestHueState : JSZHueState
 
-@property (nonatomic, copy) NSNumber *transitionTime;
-@property (nonatomic, copy) NSNumber *brightnessIncrement;
-@property (nonatomic, copy) NSNumber *saturationIncrement;
-@property (nonatomic, copy) NSNumber *hueIncrement;
-@property (nonatomic, copy) NSNumber *colorTemperatureIncrement;
-@property (nonatomic, copy) NSNumber *xyIncrement;
+//@property (nonatomic, copy) NSNumber *transitionTime;
+//@property (nonatomic, copy) NSNumber *brightnessIncrement;
+//@property (nonatomic, copy) NSNumber *saturationIncrement;
+//@property (nonatomic, copy) NSNumber *hueIncrement;
+//@property (nonatomic, copy) NSNumber *colorTemperatureIncrement;
+//@property (nonatomic, copy) NSNumber *xyIncrement;
 
 @end

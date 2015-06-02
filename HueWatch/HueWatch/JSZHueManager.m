@@ -63,15 +63,42 @@
 //        NSLog(@"error: %@", error);
         NSAssert([responseObject isKindOfClass:[NSDictionary class]], @"Response object for all lights is not of class dictionary");
         NSDictionary *responseDict = (NSDictionary *)responseObject;
-        NSDictionary *lightsDictionary = [responseDict bk_map:^id(id key, id obj) {
-            NSError *lightError;
-            JSZHueLight *light = [JSZHueLight hueLightWithJSON:obj error:&lightError];
-            if (lightError) {
-                NSLog(@"lightError: %@", lightError);
-            }
-            return light;
-        }];
-        [self.lights addEntriesFromDictionary:lightsDictionary];
+//        NSDictionary *lightsDictionary = [responseDict bk_map:^id(id key, id obj) {
+////            NSError *lightError;
+////            JSZHueLight *light = [JSZHueLight hueLightWithJSON:obj error:&lightError];
+////            if (lightError) {
+////                NSLog(@"lightError: %@", lightError);
+////            }
+////            return light;
+//            
+//        }];
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        for (NSString *key in responseDict) {
+//            [JSZHueLight hueLightWithJSON:responseDict[key] error:nil];
+            JSZHueLight *light = [[JSZHueLight alloc] init];
+            NSDictionary *hueLightInfo = responseDict[key];
+            NSLog(@"hueLightInfo: %@", hueLightInfo);
+            light.name = hueLightInfo[@"name"];
+            light.uniqueID = hueLightInfo[@"uniqueid"];
+            light.manufacturerName = hueLightInfo[@"manufacturername"];
+            light.modelID = hueLightInfo[@"modelid"];
+            light.softwareVersion = hueLightInfo[@"swversion"];
+            light.type = hueLightInfo[@"type"];
+            JSZHueState *state = [[JSZHueState alloc] init];
+            NSDictionary *hueStateInfo = hueLightInfo[@"state"];
+            state.alert = hueStateInfo[@"alert"];
+            state.brightness = [hueStateInfo[@"bri"] integerValue];
+            state.colorTemperature = [hueStateInfo[@"ct"] integerValue];
+            state.effect = hueStateInfo[@"effect"];
+            state.hue = [hueStateInfo[@"hue"] integerValue];
+            state.on = [hueStateInfo[@"on"] boolValue];
+            state.saturation = [hueStateInfo[@"sat"] integerValue];
+            light.state = state;
+            [JSZHueLight createOrUpdateInRealm:realm withValue:light];
+        }
+        [realm commitWriteTransaction];
+//        [self.lights addEntriesFromDictionary:lightsDictionary];
         
         
         
@@ -95,7 +122,8 @@
     NSNumber *lightNumber = @(lightIndex);
     NSParameterAssert(self.lights[[lightNumber stringValue]]);
     NSString *lightStateString = [NSString stringWithFormat:@"newdeveloper/lights/%@/state", lightNumber];
-    NSData *bodyData = state.JSONData;
+//    NSData *bodyData = state.JSONData;
+    NSData *bodyData;
     NSURLSessionDataTask *stateForLightTask = [self.hueSession huePUT:lightStateString body:bodyData parameters:nil response:^(id responseObject, NSError *error) {
 //        NSLog(@"responseObject: %@", responseObject);
 //        NSLog(@"error: %@", error);

@@ -18,7 +18,6 @@
 		97888C561B13FC1B000C7221 /* JSZHueState.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C551B13FC1B000C7221 /* JSZHueState.m */; };
 		97888C5B1B158FA1000C7221 /* JSZRequestHueState.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C5A1B158FA1000C7221 /* JSZRequestHueState.m */; };
 		97888C5F1B158FF3000C7221 /* JSZResponseHueState.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C5E1B158FF3000C7221 /* JSZResponseHueState.m */; };
-		97888C621B18DA8A000C7221 /* JSZHueStateAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 97888C611B18DA8A000C7221 /* JSZHueStateAdapter.m */; };
 		97BA89C11AF58B0A0065E86A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C01AF58B0A0065E86A /* main.m */; };
 		97BA89C41AF58B0A0065E86A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C31AF58B0A0065E86A /* AppDelegate.m */; };
 		97BA89C71AF58B0A0065E86A /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97BA89C61AF58B0A0065E86A /* FirstViewController.m */; };
@@ -92,8 +91,6 @@
 		97888C5A1B158FA1000C7221 /* JSZRequestHueState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZRequestHueState.m; sourceTree = "<group>"; };
 		97888C5D1B158FF3000C7221 /* JSZResponseHueState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSZResponseHueState.h; sourceTree = "<group>"; };
 		97888C5E1B158FF3000C7221 /* JSZResponseHueState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZResponseHueState.m; sourceTree = "<group>"; };
-		97888C601B18DA8A000C7221 /* JSZHueStateAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSZHueStateAdapter.h; sourceTree = "<group>"; };
-		97888C611B18DA8A000C7221 /* JSZHueStateAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSZHueStateAdapter.m; sourceTree = "<group>"; };
 		97BA89BB1AF58B0A0065E86A /* HueWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HueWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97BA89BF1AF58B0A0065E86A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97BA89C01AF58B0A0065E86A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -210,8 +207,6 @@
 			children = (
 				97888C541B13FC1B000C7221 /* JSZHueState.h */,
 				97888C551B13FC1B000C7221 /* JSZHueState.m */,
-				97888C601B18DA8A000C7221 /* JSZHueStateAdapter.h */,
-				97888C611B18DA8A000C7221 /* JSZHueStateAdapter.m */,
 				97888C591B158FA1000C7221 /* JSZRequestHueState.h */,
 				97888C5A1B158FA1000C7221 /* JSZRequestHueState.m */,
 				97888C5D1B158FF3000C7221 /* JSZResponseHueState.h */,
@@ -504,7 +499,6 @@
 			files = (
 				97888C561B13FC1B000C7221 /* JSZHueState.m in Sources */,
 				97EB8E1D1B13C9AA005F25E5 /* NSString+HueWatch.m in Sources */,
-				97888C621B18DA8A000C7221 /* JSZHueStateAdapter.m in Sources */,
 				97888C531B13FB9F000C7221 /* JSZHueLight.m in Sources */,
 				97888C501B13F966000C7221 /* JSZHueManager.m in Sources */,
 				97BA89CA1AF58B0A0065E86A /* SecondViewController.m in Sources */,

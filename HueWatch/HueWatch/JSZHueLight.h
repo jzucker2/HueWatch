@@ -7,22 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Mantle/Mantle.h>
+#import <Realm/Realm.h>
 
 @class JSZHueState;
-@interface JSZHueLight : MTLModel <MTLJSONSerializing>
+@interface JSZHueLight : RLMObject
 
 //- (instancetype)initWithJSON:(NSDictionary *)dictionary;
 //+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionary;
-+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionaryValue error:(NSError **)error;
+//+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionaryValue error:(NSError **)error;
 
-@property (nonatomic, copy, readonly) NSString *name;
-@property (nonatomic, readonly) JSZHueState *state;
-@property (nonatomic, copy, readonly) NSString *uniqueID;
-@property (nonatomic, copy, readonly) NSString *type;
-@property (nonatomic, copy, readonly) NSString *modelID;
-@property (nonatomic, copy, readonly) NSString *manufacturerName;
-@property (nonatomic, copy, readonly) NSString *softwareVersion;
-@property (nonatomic, readonly) id pointsymbol;
+@property NSString *name;
+@property JSZHueState *state;
+@property NSString *uniqueID;
+@property NSString *type;
+@property NSString *modelID;
+@property NSString *manufacturerName;
+@property NSString *softwareVersion;
+//@property id pointsymbol;
 
 @end

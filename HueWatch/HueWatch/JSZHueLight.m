@@ -6,45 +6,75 @@
 //  Copyright (c) 2015 Jordan Zucker. All rights reserved.
 //
 
+//#import <Realm+JSON/RLMObject+JSON.h>
+
 #import "JSZHueLight.h"
-#import "JSZResponseHueState.h"
+//#import "JSZResponseHueState.h"
 
 @interface JSZHueLight ()
-@property (nonatomic, copy, readwrite) NSString *name;
-@property (nonatomic, readwrite) JSZHueState *state;
-@property (nonatomic, copy, readwrite) NSString *uniqueID;
-@property (nonatomic, copy, readwrite) NSString *type;
-@property (nonatomic, copy, readwrite) NSString *modelID;
-@property (nonatomic, copy, readwrite) NSString *manufacturerName;
-@property (nonatomic, copy, readwrite) NSString *softwareVersion;
-@property (nonatomic, readwrite) id pointsymbol;
+//@property (nonatomic, copy, readwrite) NSString *name;
+//@property (nonatomic, readwrite) JSZHueState *state;
+//@property (nonatomic, copy, readwrite) NSString *uniqueID;
+//@property (nonatomic, copy, readwrite) NSString *type;
+//@property (nonatomic, copy, readwrite) NSString *modelID;
+//@property (nonatomic, copy, readwrite) NSString *manufacturerName;
+//@property (nonatomic, copy, readwrite) NSString *softwareVersion;
+//@property (nonatomic, readwrite) id pointsymbol;
 
 @end
 
 @implementation JSZHueLight
 
-+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
-//    return [[self alloc] initWithDictionary:dictionaryValue error:error];
-    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:dictionaryValue error:error];
+//+ (instancetype)hueLightWithJSON:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error {
+////    return [[self alloc] initWithDictionary:dictionaryValue error:error];
+////    return [MTLJSONAdapter modelOfClass:[self class] fromJSONDictionary:dictionaryValue error:error];
+//    return [self createOrUpdateInRealm:[RLMRealm defaultRealm] withJSONDictionary:dictionaryValue];
+//}
+
++ (NSString *)primaryKey {
+    return @"uniqueID";
 }
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    // model_property_name : json_field_name
-    return @{
-             @"name" : @"name",
-             @"uniqueID" : @"uniqueid",
-             @"state" : @"state",
-             @"type" : @"type",
-             @"modelID" : @"modelid",
-             @"manufacturerName" : @"manufacturername",
-             @"softwareVersion" : @"swversion",
-             @"pointsymbol" : @"pointsymbol"
-             };
-}
+//+ (NSDictionary *)JSONInboundMappingDictionary {
+//    return @{
+//             @"state": @"state",
+//             @"type": @"type",
+//             @"name": @"name",
+//             @"modelid": @"modelID",
+//             @"uniqueid": @"uniqueID",
+//             @"manufacturername": @"manufacturerName",
+//             @"swversion": @"softwareVersion",
+//             };
+//}
 
-+ (NSValueTransformer *)stateJSONTransformer {
-    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[JSZHueState class]];
-}
+//+ (NSDictionary *)JSONOutboundMappingDictionary {
+//    NSLog(@"is this called every time?");
+//    return @{
+//             @"title": @"title",
+//             @"subtitle": @"episode.description",
+//             @"episodeID": @"id",
+//             @"episodeNumber": @"episode.number",
+//             @"state": @"state",
+//             };
+//}
+
+//+ (NSDictionary *)JSONKeyPathsByPropertyKey {
+//    // model_property_name : json_field_name
+//    return @{
+//             @"name" : @"name",
+//             @"uniqueID" : @"uniqueid",
+//             @"state" : @"state",
+//             @"type" : @"type",
+//             @"modelID" : @"modelid",
+//             @"manufacturerName" : @"manufacturername",
+//             @"softwareVersion" : @"swversion",
+//             @"pointsymbol" : @"pointsymbol"
+//             };
+//}
+//
+//+ (NSValueTransformer *)stateJSONTransformer {
+//    return [MTLJSONAdapter dictionaryTransformerWithModelClass:[JSZHueState class]];
+//}
 
 //- (instancetype)initWithJSON:(NSDictionary *)dictionary {
 //    self = [super init];
